@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">CyanVibrate</string>
+    <string name="message_ok">完成了!</string>
+    <string name="message_ok_msg">现在，拉下通知栏找到震动磁贴！
+        \n请将这个应用移出内存回收工具的黑名单，因为发送磁贴需要呆在后台
+        \n应用程序会在启动时发布磁贴，因为每次重启磁贴会丢失</string>
+    <string name="text_time_set">设置震动时长</string>
+    <string name="button_web">网站和源代码</string>
+    <string name="button_hide">隐藏图标</string>
+    <string name="toast_progress_change">%1$s 秒</string>
+</resources>
