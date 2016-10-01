@@ -7,5 +7,6 @@
     <string name="text_time_set">设置震动时长</string>
     <string name="button_web">网站和源代码</string>
     <string name="button_hide">隐藏图标</string>
+    <string name="button_restore_icon">恢复图标</string>
     <string name="toast_progress_change">%1$s 秒</string>
 </resources>

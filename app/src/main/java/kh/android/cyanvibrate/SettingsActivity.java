@@ -3,9 +3,11 @@ package kh.android.cyanvibrate;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.ActivityNotFoundException;
+import android.content.ComponentName;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -56,12 +58,13 @@ public class SettingsActivity extends Activity{
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 sharedPreferences.edit().putInt(TileManager.PREFS_SEC, seekBar.getProgress()).apply();
+                finish();
             }
         });
         builder.setTitle(R.string.text_time_set);
         builder.setCancelable(false);
         builder.setNegativeButton(android.R.string.cancel, null);
-        builder.setNeutralButton(R.string.button_web, new DialogInterface.OnClickListener() {
+        builder.setNegativeButton(R.string.button_web, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 try {
@@ -72,6 +75,16 @@ public class SettingsActivity extends Activity{
                 } catch (ActivityNotFoundException e) {
 
                 }
+                finish();
+            }
+        });
+        builder.setNeutralButton(R.string.button_restore_icon, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                PackageManager p = getPackageManager();
+                ComponentName componentName = new ComponentName(SettingsActivity.this, WelcomeActivity.class); // activity which is first time open in manifiest file which is declare as <category android:name="android.intent.category.LAUNCHER" />
+                p.setComponentEnabledSetting(componentName,PackageManager.COMPONENT_ENABLED_STATE_ENABLED, PackageManager.DONT_KILL_APP);
+                finish();
             }
         });
         builder.show();
